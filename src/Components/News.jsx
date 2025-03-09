@@ -402,7 +402,6 @@ const StockNews = () => {
     <p className="text-lg font-bold text-white">₹{stock.resistance?.toFixed(2)}</p>
   </div>
 </div>
-
               {/* Chart 1: Line Chart (Actual vs Predicted) */}
               <div className="w-full mb-6" style={{ height: "400px" }}>
                 <h3 className="text-lg font-semibold mb-2">Price Prediction</h3>
