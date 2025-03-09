@@ -164,13 +164,13 @@ const Home = () => {
       {/* Main Content */}
       <div className="flex flex-col lg:flex-row gap-6 p-6">
         {/* Watchlist (Left Side on Desktop, Below on Mobile) */}
-        <div className="lg:w-1/4 bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6">
-          <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-200">📌 My Watchlist</h2>
+        <div className="lg:w-1/4 bg-white shadow-lg rounded-lg p-6">
+          <h2 className="text-2xl font-semibold mb-4 text-gray-800">📌 My Watchlist</h2>
           <div className="flex mb-4">
             <input
               type="text"
               placeholder="Add stock (e.g., RELIANCE)"
-              className="border px-3 py-2 w-full rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white dark:border-gray-600"
+              className="border px-3 py-2 w-full rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={(e) => e.key === "Enter" && addStock()}
@@ -185,15 +185,15 @@ const Home = () => {
           </div>
           <ul className="space-y-3">
             {watchlist.length === 0 ? (
-              <p className="text-gray-500 dark:text-gray-400 text-center">Your watchlist is empty.</p>
+              <p className="text-gray-500 text-center">Your watchlist is empty.</p>
             ) : (
               watchlist.map((stock, index) => (
                 <li
                   key={index}
-                  className="flex justify-between items-center bg-gray-200 dark:bg-gray-700 p-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-300 transform hover:scale-102 cursor-pointer"
+                  className="flex justify-between items-center bg-gray-200 p-3 rounded-lg hover:bg-gray-300 transition-all duration-300 transform hover:scale-102 cursor-pointer"
                   onClick={() => navigate(`/news?ticker=${stock}`)}
                 >
-                  <span className="font-semibold text-gray-800 dark:text-gray-200">{stock}</span>
+                  <span className="font-semibold text-gray-800">{stock}</span>
                   <button
                     onClick={(e) => {
                       e.stopPropagation(); // Prevent navigation when clicking the remove button
@@ -213,24 +213,24 @@ const Home = () => {
         {/* Main Content (Right Side on Desktop) */}
         <div className="flex-grow">
           {/* Trending Stocks Section */}
-          <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 mb-6">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-200">🔥 Trending Stocks</h2>
+          <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800">🔥 Trending Stocks</h2>
             {loading ? (
               <div className="text-center text-blue-500">Loading trending stocks...</div>
             ) : trendingStocks.length === 0 ? (
-              <div className="text-center text-gray-500 dark:text-gray-400">No trending stocks available.</div>
+              <div className="text-center text-gray-500">No trending stocks available.</div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {trendingStocks.map((stock, index) => (
                   <div
                     key={index}
-                    className="p-4 bg-gray-100 dark:bg-gray-700 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300 transform hover:scale-105 cursor-pointer"
+                    className="p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 cursor-pointer"
                     onClick={() => navigate(`/news?ticker=${stock.symbol}`)}
                   >
                     <div className="flex justify-between items-center">
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200">{stock.symbol}</h3>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">₹{stock.price.toFixed(2)}</p>
+                        <h3 className="text-lg font-semibold text-gray-800">{stock.symbol}</h3>
+                        <p className="text-sm text-gray-600">₹{stock.price.toFixed(2)}</p>
                       </div>
                       <span
                         className={`text-sm font-semibold ${stock.change >= 0 ? "text-green-500" : "text-red-500"
@@ -246,19 +246,19 @@ const Home = () => {
           </div>
 
           {/* Market Insights Section */}
-          <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-200">📈 Market Insights</h2>
+          <div className="bg-white shadow-lg rounded-lg p-6">
+            <h2 className="text-2xl font-semibold mb-4 text-gray-800">📈 Market Insights</h2>
             <div className="space-y-4">
               {/* Initial Indices (NIFTY 50, SENSEX) */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {marketIndices.slice(0, 2).map((index, idx) => (
                   <div
                     key={idx}
-                    className={`p-4 rounded-lg ${idx === 0 ? "bg-blue-100 dark:bg-blue-900" : "bg-green-100 dark:bg-green-900"
+                    className={`p-4 rounded-lg ${idx === 0 ? "bg-blue-100" : "bg-green-100"
                       }`}
                   >
-                    <h3 className={`text-lg font-semibold ${idx === 0 ? "text-blue-800 dark:text-blue-200" : "text-green-800 dark:text-green-200"}`}>{index.name}</h3>
-                    <p className={`text-sm ${idx === 0 ? "text-blue-600 dark:text-blue-300" : "text-green-600 dark:text-green-300"}`}>
+                    <h3 className={`text-lg font-semibold ${idx === 0 ? "text-blue-800" : "text-green-800"}`}>{index.name}</h3>
+                    <p className={`text-sm ${idx === 0 ? "text-blue-600" : "text-green-600"}`}>
                       {index.value.toFixed(2)} <span className={index.change >= 0 ? "text-green-500" : "text-red-500"}>{index.change >= 0 ? "+" : ""}{index.change.toFixed(2)}%</span>
                     </p>
                   </div>
@@ -279,11 +279,11 @@ const Home = () => {
                   {marketIndices.slice(2).map((index, idx) => (
                     <div
                       key={idx}
-                      className={`p-4 rounded-lg ${idx % 2 === 0 ? "bg-purple-100 dark:bg-purple-900" : "bg-orange-100 dark:bg-orange-900"
+                      className={`p-4 rounded-lg ${idx % 2 === 0 ? "bg-purple-100" : "bg-orange-100"
                         }`}
                     >
-                      <h3 className={`text-lg font-semibold ${idx % 2 === 0 ? "text-purple-800 dark:text-purple-200" : "text-orange-800 dark:text-orange-200"}`}>{index.name}</h3>
-                      <p className={`text-sm ${idx % 2 === 0 ? "text-purple-600 dark:text-purple-300" : "text-orange-600 dark:text-orange-300"}`}>
+                      <h3 className={`text-lg font-semibold ${idx % 2 === 0 ? "text-purple-800" : "text-orange-800"}`}>{index.name}</h3>
+                      <p className={`text-sm ${idx % 2 === 0 ? "text-purple-600" : "text-orange-600"}`}>
                         {index.value.toFixed(2)} <span className={index.change >= 0 ? "text-green-500" : "text-red-500"}>{index.change >= 0 ? "+" : ""}{index.change.toFixed(2)}%</span>
                       </p>
                     </div>

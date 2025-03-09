@@ -324,12 +324,7 @@ const StockNews = () => {
               </button>
             ))}
           </div>
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="p-2 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition"
-          >
-            {darkMode ? "☀️" : "🌙"}
-          </button>
+          
         </div>
       </header>
 
@@ -376,38 +371,37 @@ const StockNews = () => {
                 </span>
               </div>
 
-              {/* Interactive Price Info */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                <div className="p-4 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-all transform hover:scale-105 cursor-pointer">
-                  <p className="text-sm font-semibold text-gray-600 dark:text-gray-300">📊 Current Price</p>
-                  <p className="text-lg font-bold">₹{stock.current_price?.toFixed(2)}</p>
-                </div>
-                <div className="p-4 rounded-lg bg-green-100 dark:bg-green-800 hover:bg-green-200 dark:hover:bg-green-700 transition-all transform hover:scale-105 cursor-pointer">
-                  <p className="text-sm font-semibold text-green-600 dark:text-green-300">✅ Buy Price</p>
-                  <p className="text-lg font-bold">₹{stock.buy_price?.toFixed(2)}</p>
-                </div>
-                <div className="p-4 rounded-lg bg-red-100 dark:bg-red-800 hover:bg-red-200 dark:hover:bg-red-700 transition-all transform hover:scale-105 cursor-pointer">
-                  <p className="text-sm font-semibold text-red-600 dark:text-red-300">❌ Sell Price</p>
-                  <p className="text-lg font-bold">₹{stock.sell_price?.toFixed(2)}</p>
-                </div>
-                <div className="p-4 rounded-lg bg-yellow-100 dark:bg-yellow-800 hover:bg-yellow-200 dark:hover:bg-yellow-700 transition-all transform hover:scale-105 cursor-pointer">
-                  <p className="text-sm font-semibold text-yellow-600 dark:text-yellow-300">🎯 Target Price</p>
-                  <p className="text-lg font-bold">₹{stock.target_price?.toFixed(2)}</p>
-                </div>
-                <div className="p-4 rounded-lg bg-purple-100 dark:bg-purple-800 hover:bg-purple-200 dark:hover:bg-purple-700 transition-all transform hover:scale-105 cursor-pointer">
-                  <p className="text-sm font-semibold text-purple-600 dark:text-purple-300">🛑 Stop Loss</p>
-                  <p className="text-lg font-bold">₹{stock.stop_loss?.toFixed(2)}</p>
-                </div>
-                <div className="p-4 rounded-lg bg-green-100 dark:bg-green-800 hover:bg-green-200 dark:hover:bg-green-700 transition-all transform hover:scale-105 cursor-pointer">
-                  <p className="text-sm font-semibold text-green-600 dark:text-green-300">🛡️ Support</p>
-                  <p className="text-lg font-bold">₹{stock.support?.toFixed(2)}</p>
-                </div>
-                <div className="p-4 rounded-lg bg-orange-100 dark:bg-orange-800 hover:bg-orange-200 dark:hover:bg-orange-700 transition-all transform hover:scale-105 cursor-pointer">
-                  <p className="text-sm font-semibold text-orange-600 dark:text-orange-300">🚧 Resistance</p>
-                  <p className="text-lg font-bold">₹{stock.resistance?.toFixed(2)}</p>
-                </div>
-              </div>
-
+{/* Interactive Price Info */}
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+  <div className="p-4 rounded-lg bg-blue-600 dark:bg-blue-900 hover:bg-blue-700 dark:hover:bg-blue-800 transition-all transform hover:scale-105 cursor-pointer">
+    <p className="text-sm font-semibold text-white">📊 Current Price</p>
+    <p className="text-lg font-bold text-white">₹{stock.current_price?.toFixed(2)}</p>
+  </div>
+  <div className="p-4 rounded-lg bg-green-600 dark:bg-green-900 hover:bg-green-700 dark:hover:bg-green-800 transition-all transform hover:scale-105 cursor-pointer">
+    <p className="text-sm font-semibold text-white">✅ Buy Price</p>
+    <p className="text-lg font-bold text-white">₹{stock.buy_price?.toFixed(2)}</p>
+  </div>
+  <div className="p-4 rounded-lg bg-red-600 dark:bg-red-900 hover:bg-red-700 dark:hover:bg-red-800 transition-all transform hover:scale-105 cursor-pointer">
+    <p className="text-sm font-semibold text-white">❌ Sell Price</p>
+    <p className="text-lg font-bold text-white">₹{stock.sell_price?.toFixed(2)}</p>
+  </div>
+  <div className="p-4 rounded-lg bg-yellow-600 dark:bg-yellow-900 hover:bg-yellow-700 dark:hover:bg-yellow-800 transition-all transform hover:scale-105 cursor-pointer">
+    <p className="text-sm font-semibold text-white">🎯 Target Price</p>
+    <p className="text-lg font-bold text-white">₹{stock.target_price?.toFixed(2)}</p>
+  </div>
+  <div className="p-4 rounded-lg bg-gray-700 dark:bg-gray-900 hover:bg-gray-800 dark:hover:bg-gray-800 transition-all transform hover:scale-105 cursor-pointer">
+    <p className="text-sm font-semibold text-white">🛑 Stop Loss</p>
+    <p className="text-lg font-bold text-white">₹{stock.stop_loss?.toFixed(2)}</p>
+  </div>
+  <div className="p-4 rounded-lg bg-green-700 dark:bg-green-900 hover:bg-green-800 dark:hover:bg-green-800 transition-all transform hover:scale-105 cursor-pointer">
+    <p className="text-sm font-semibold text-white">🛡️ Support</p>
+    <p className="text-lg font-bold text-white">₹{stock.support?.toFixed(2)}</p>
+  </div>
+  <div className="p-4 rounded-lg bg-orange-600 dark:bg-orange-900 hover:bg-orange-700 dark:hover:bg-orange-800 transition-all transform hover:scale-105 cursor-pointer">
+    <p className="text-sm font-semibold text-white">🚧 Resistance</p>
+    <p className="text-lg font-bold text-white">₹{stock.resistance?.toFixed(2)}</p>
+  </div>
+</div>
               {/* Chart 1: Line Chart (Actual vs Predicted) */}
               <div className="w-full mb-6" style={{ height: "400px" }}>
                 <h3 className="text-lg font-semibold mb-2">Price Prediction</h3>
